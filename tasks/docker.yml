@@ -1,0 +1,7 @@
+- name: change permission bec of DOCKER INSTALL TEST
+  shell: chown -R jens:jens /home/jens
+  tags:
+    - install
+    - dotfiles
+    - stow
+    - docker

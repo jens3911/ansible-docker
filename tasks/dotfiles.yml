@@ -1,0 +1,24 @@
+- name: Installing stow
+  apt: name=stow
+  tags:
+    - install
+    - dotfiles
+    - stow
+- name: Rename .zshrc original file
+  shell: mv /home/jens/.zshrc /home/jens/.zshrc.bak
+  tags:
+    - install
+    - dotfiles
+    - stow
+- name: DeStow dotfiles
+  shell: cd /home/jens/.dotfiles && ./clean
+  tags:
+    - install
+    - dotfiles
+    - stow
+- name: Stow dotfiles
+  shell: cd /home/jens/.dotfiles && ./ubuntu
+  tags:
+    - install
+    - dotfiles
+    - stow

@@ -1,0 +1,18 @@
+- hosts: localhost
+  become: true
+  pre_tasks:
+    - name: Update cache
+      apt:
+        update_cache: true
+      tags:
+        - node
+  tasks:
+    - include: tasks/git-setup.yml
+    - include: tasks/zsh.yml
+    - include: tasks/dotfiles.yml
+    #- include: tasks/core-setup.yml
+    #- include: tasks/nvim-setup.yml
+    - include: tasks/productivity-tools.yml
+    - include: tasks/docker.yml
+    #- include: tasks/node.yml
+    #- include: tasks/npm-packages.yml
